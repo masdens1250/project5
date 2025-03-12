@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Amiri', serif;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 overflow-x-hidden;
+  }
+
+  h1 {
+    @apply text-2xl font-bold tracking-tight;
+  }
+
+  h2 {
+    @apply text-xl font-semibold tracking-tight;
+  }
+
+  h3 {
+    @apply text-lg font-semibold;
+  }
+
+  /* Amélioration de l'accessibilité des boutons */
+  button:focus {
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+  }
+
+  /* Amélioration de l'accessibilité des inputs */
+  input:focus, select:focus, textarea:focus {
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+  }
+}
+
+@layer components {
+  /* Amélioration du style de la scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full hover:bg-gray-400 transition-colors;
+  }
+
+  /* Style des transitions */
+  .fade-enter {
+    @apply opacity-0;
+  }
+  .fade-enter-active {
+    @apply opacity-100 transition-opacity duration-300;
+  }
+  .fade-exit {
+    @apply opacity-100;
+  }
+  .fade-exit-active {
+    @apply opacity-0 transition-opacity duration-300;
+  }
+
+  /* Style des animations de chargement */
+  .loading-spinner {
+    @apply animate-spin rounded-full border-4 border-gray-200;
+    border-top-color: theme('colors.blue.600');
+  }
+}
+
+/* Optimisations pour RTL */
+[dir="rtl"] {
+  .space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+}
